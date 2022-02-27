@@ -1,13 +1,12 @@
 #pragma once
 
-#include <memory>
-
-#include "Core.h"
+#include <Core.h>
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/fmt/ostr.h"
 
 namespace Mortal {
-	class ME_API MELogger
+	class ME_LOGGER_API MELogger
 	{
 		static std::shared_ptr<spdlog::logger> m_CoreLogger;
 		static std::shared_ptr<spdlog::logger> m_ClientLogger;

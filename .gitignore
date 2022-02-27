@@ -2,3 +2,15 @@
 bin/
 int/
 intermediate/
+*.pdb
+*.lib
+*.log
+*.lastbuildstate
+*.recipe
+*.obj
+*.idb
+ME_win64/x64/Debug/ME_win64.tlog/unsuccessfulbuild
+*.tlog
+Core/x64/Debug/CodeAnalysisResultManifest.txt
+*.ilk
+Logger/x64/Debug/Logger.vcxproj.FileListAbsolute.txt

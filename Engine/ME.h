@@ -1,19 +1,36 @@
 #pragma once
-#ifdef ME_PLATFORM_WINDOWS
+
 
 #include "src/Application.h"
-#include "src/MELogger.h"
+#include <MELogger.h>
 
-extern Mortal::Application* Mortal::CreateApplication();
+extern Mortal::Application* Mortal::CreateApplication(int Width, int Height, int VSync);
 
-int main(int argc, char** argv)
+#ifdef ME_PLATFORM_WINDOWS
+
+//HINSTANCE hinst;
+
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+	_In_opt_ HINSTANCE hPrevInstance,
+	_In_ LPWSTR    lpCmdLine,
+	_In_ int       nCmdShow)
 {
 	Mortal::MELogger::Init();
 	ME_CORE_WARN("I RAN DOWN THE RAMP");
 	ME_CLIENT_WARN("I LOOKED VERY HANDSOME");
-	Mortal::Application* myApp = Mortal::CreateApplication();
+	//hinst = hInstance;
+	Mortal::Application* myApp = Mortal::CreateApplication(1920,1080,false);
 	myApp->Run();
 	delete myApp;
 }
-
-#endif // ME_PLATFORM_WINDOWS
+#else
+ int main(int argc, char** argv)
+ {
+ 	Mortal::MELogger::Init();
+ 	ME_CORE_WARN("I RAN DOWN THE RAMP");
+ 	ME_CLIENT_WARN("I LOOKED VERY HANDSOME");
+ 	Mortal::Application* myApp = Mortal::CreateApplication(1920,1080,false);
+ 	myApp->Run();
+ 	delete myApp;
+ }
+#endif 
