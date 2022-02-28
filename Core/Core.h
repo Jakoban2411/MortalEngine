@@ -1,5 +1,14 @@
 #pragma once
-#include "MEPCH.h"
+#include <string>
+#include <functional>
+#include <sstream>
+#include <memory>
+#include <algorithm>
+#include <utility>
+#include <vector>
+#include <unordered_set>
+#include <unordered_map>
+#include <chrono>
 #ifdef ME_PLATFORM_WINDOWS
 	#ifdef ME_LOGGER_DLL
 		#define ME_LOGGER_API _declspec(dllexport)
@@ -21,12 +30,5 @@
 	#else 
 		#define ME_RENDERER_API _declspec(dllimport)
 	#endif // ME_RENDERER_DLL
-	#ifdef VULKAN_RENDERER
-		#define ME_VULKAN_API
-	#else
-		#define ME_D3D12_API
-#include <d3d12.h>
-#include <>
-	#endif // VULKAN_DLL
 #endif
 #define BIT(x) (1<<x)

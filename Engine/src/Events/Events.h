@@ -1,5 +1,5 @@
 #pragma once
-#include <Core.h>
+#include "../../EnginePCH.h"
 namespace Mortal {
 
 #define EVENT_CLASS_TYPE(type) static EventType GetType() {return EventType::##type; } \

@@ -1,7 +1,7 @@
 #pragma once
+#include "../Win64PCH.h"
 #ifdef ME_PLATFORM_WINDOWS
 #include "../../Engine/src/Window/Window.h"
-#include "MELogger.h"
 namespace Mortal {
 	
 	//extern HINSTANCE hinst;

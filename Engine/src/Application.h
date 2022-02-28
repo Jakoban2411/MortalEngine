@@ -1,6 +1,5 @@
 #pragma once
-#include <Core.h>
-#include <MELogger.h>
+#include <EnginePCH.h>
 #include "src/Window/Window.h"
 #include "Events/Events.h"
 #ifdef ME_PLATFORM_WINDOWS
@@ -8,7 +7,6 @@
 #endif 
 
 namespace Mortal {
-	
 	class ME_ENGINE_API Application
 	{
 	public:

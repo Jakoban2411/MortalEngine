@@ -1,5 +1,6 @@
-#ifdef ME_PLATFORM_WINDOWS
+#include "Win64PCH.h"
 #include "WinApp.h"
+#ifdef ME_PLATFORM_WINDOWS
 
 namespace Mortal {
 	LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)

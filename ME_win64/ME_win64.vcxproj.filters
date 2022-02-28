@@ -18,9 +18,15 @@
     <ClCompile Include="Window\WinApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Win64PCH.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window\WinApp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Win64PCH.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

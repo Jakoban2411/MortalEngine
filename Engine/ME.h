@@ -1,8 +1,6 @@
 #pragma once
 
-
 #include "src/Application.h"
-#include <MELogger.h>
 
 extern Mortal::Application* Mortal::CreateApplication(int Width, int Height, int VSync);
 
