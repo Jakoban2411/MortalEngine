@@ -1,4 +1,4 @@
-#include "Win64PCH.h"
+#include "../Win64PCH.h"
 #include "WinApp.h"
 #ifdef ME_PLATFORM_WINDOWS
 
@@ -39,13 +39,16 @@ namespace Mortal {
 		wcex.cbSize = sizeof(WNDCLASSEX);
 
 		wcex.style = CS_HREDRAW | CS_VREDRAW;
-		wcex.lpfnWndProc = WndProc;
+		wcex.lpfnWndProc = &WndProc;
 		wcex.cbClsExtra = 0;
 		wcex.cbWndExtra = 0;
 		wcex.hInstance = GetModuleHandle(NULL);
+		wcex.hIcon = ::LoadIcon(GetModuleHandle(NULL), NULL);
+		wcex.hCursor = ::LoadCursor(NULL, IDC_ARROW);
 		wcex.hbrBackground = (HBRUSH)(COLOR_WINDOW + 1);
 		wcex.lpszMenuName = NULL;
 		auto name = m_data.m_info.WndTitle.c_str();
+		wcex.hIconSm = ::LoadIcon(GetModuleHandle(NULL), NULL);
 		wcex.lpszClassName = name;
 
 		return RegisterClassEx(&wcex);

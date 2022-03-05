@@ -31,6 +31,7 @@ namespace Mortal {
 			WindowInfo m_info;
 			EventCallback EvntCbck;
 		}m_data;
+
 	};
 	Window* CreateWndw(const Mortal::WindowInfo& _info)
 	{
