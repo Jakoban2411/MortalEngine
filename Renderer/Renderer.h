@@ -16,8 +16,10 @@ namespace Mortal {
 		virtual GPUProperties GetDeviceProperties() = 0;
 		virtual void CreateDevice() = 0;
 		inline virtual void GetDevice(void* device) = 0;
+		virtual void Render();
 #ifdef _DEBUG
 		virtual void EnableDebugging()=0;
 #endif
 	};
+	static Renderer* CreateRenderer();
 }

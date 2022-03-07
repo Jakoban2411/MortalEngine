@@ -1,15 +1,10 @@
 #include "RendererPCH.h"
 #include "D3DDevice.h"
 namespace Mortal {
-#ifdef _DEBUG
-	void D3DDevice::EnableDebugging()
+	void D3DDevice::Render()
 	{
-		d3dptr<ID3D12Debug1> debugInterface;
-		ThrowIfFailed(D3D12GetDebugInterface(IID_PPV_ARGS(&debugInterface)));
-		debugInterface->EnableDebugLayer();
+		
 	}
-#endif // _DEBUG
-
 	void D3DDevice::GetAdapter(const d3dptr<IDXGIFactory7> &dxgifactory)
 	{
 		d3dptr<IDXGIAdapter1> dxgiadapter1;
@@ -147,5 +142,12 @@ namespace Mortal {
 			rtvhandle.Offset(rtvdescsize);
 		}
 	}
-
+#ifdef _DEBUG
+	void D3DDevice::EnableDebugging()
+	{
+		d3dptr<ID3D12Debug1> debugInterface;
+		ThrowIfFailed(D3D12GetDebugInterface(IID_PPV_ARGS(&debugInterface)));
+		debugInterface->EnableDebugLayer();
+	}
+#endif // _DEBUG
 }

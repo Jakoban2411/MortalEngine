@@ -11,7 +11,7 @@ namespace Mortal {
 	public:
 		WindowWindows(const WindowInfo& info);
 		~WindowWindows();
-		int Update() override;
+		int Render() override;
 
 		inline void SetEventCallback(const EventCallback& callback) override { m_data.EvntCbck = callback; }
 

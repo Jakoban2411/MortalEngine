@@ -78,7 +78,7 @@ namespace Mortal {
 		return TRUE;
 	}
 
-	int WindowWindows::Update()
+	int WindowWindows::Render()
 	{
 		/*if (PeekMessage(&m_msg, NULL, 0, 0, PM_REMOVE))
 		{
