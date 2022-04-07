@@ -119,7 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>ME_PLATFORM_WINDOWS;ME_WIN64_DLL;ME_ENGINE_DLL;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Core;$(SolutionDir)Logger\Logger\include;$(SolutionDir)Engine\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Logger\Logger\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>Win64PCH.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -129,7 +129,7 @@
       <AdditionalDependencies>Logger.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)bin\$(Platform)-$(Configuration)\$(TargetName)\$(TargetName).dll" "$(SolutionDir)bin\$(Platform)-$(Configuration)\Sandbox\" /y</Command>
+      <Command>copy $(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\ME_win64.dll $(SolutionDir)bin\$(Platform)-$(Configuration)\Sandbox\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

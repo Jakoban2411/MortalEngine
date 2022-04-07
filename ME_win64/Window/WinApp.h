@@ -1,7 +1,7 @@
 #pragma once
 #include "../Win64PCH.h"
-#ifdef ME_PLATFORM_WINDOWS
 #include "../../Engine/src/Window/Window.h"
+#ifdef ME_PLATFORM_WINDOWS
 namespace Mortal {
 	
 	//extern HINSTANCE hinst;
@@ -11,7 +11,7 @@ namespace Mortal {
 	public:
 		WindowWindows(const WindowInfo& info);
 		~WindowWindows();
-		int Render() override;
+		int GetInput() override;
 
 		inline void SetEventCallback(const EventCallback& callback) override { m_data.EvntCbck = callback; }
 

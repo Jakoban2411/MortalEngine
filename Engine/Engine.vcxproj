@@ -98,7 +98,7 @@
     <LinkIncremental>true</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\</OutDir>
     <IntDir>$(SolutionDir)intermediate\$(Platform)-$(Configuration)\$(ProjectName)\</IntDir>
-    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)bin\$(Platform)-$(Configuration)\Logger;$(SolutionDir)bin\$(Platform)-$(Configuration)\ME_win64</LibraryPath>
+    <LibraryPath>$(VC_LibraryPath_x64);$(WindowsSDK_LibraryPath_x64);$(SolutionDir)bin\$(Platform)-$(Configuration)\Logger;$(SolutionDir)bin\$(Platform)-$(Configuration)\ME_win64;$(SolutionDir)bin\$(Platform)-$(Configuration)\Renderer</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -139,17 +139,17 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>ME_PLATFORM_WINDOWS;ME_ENGINE_DLL;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Logger\Logger\include;$(SolutionDir)ME_win64;$(SolutionDir)Core;$(SolutionDir)Engine;$(SolutionDir)Renderer;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Logger\Logger\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>EnginePCH.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Logger.lib;ME_win64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>Logger.lib;ME_win64.lib;Renderer.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)bin\$(Platform)-$(Configuration)\$(TargetName)\$(TargetName).dll" "$(SolutionDir)bin\$(Platform)-$(Configuration)\Sandbox\" /y</Command>
+      <Command>copy $(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\Engine.dll $(SolutionDir)bin\$(Platform)-$(Configuration)\Sandbox\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

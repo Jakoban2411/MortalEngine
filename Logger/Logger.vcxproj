@@ -118,7 +118,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;ME_PLATFORM_WINDOWS;ME_LOGGER_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Core;$(SolutionDir)Logger\Logger\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Logger\Logger\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>$(SolutionDir)Core\MEPCH.h</PrecompiledHeaderFile>
     </ClCompile>
@@ -127,7 +127,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy "$(SolutionDir)bin\$(Platform)-$(Configuration)\$(TargetName)\$(TargetName).dll" "$(SolutionDir)bin\$(Platform)-$(Configuration)\Sandbox\" /y</Command>
+      <Command>copy $(SolutionDir)bin\$(Platform)-$(Configuration)\$(ProjectName)\Logger.dll $(SolutionDir)bin\$(Platform)-$(Configuration)\Sandbox\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

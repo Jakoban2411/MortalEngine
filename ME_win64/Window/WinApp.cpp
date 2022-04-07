@@ -1,4 +1,4 @@
-#include "../Win64PCH.h"
+#include "Win64PCH.h"
 #include "WinApp.h"
 #ifdef ME_PLATFORM_WINDOWS
 
@@ -13,11 +13,11 @@ namespace Mortal {
 
 		case WM_PAINT:
 			{
-				PAINTSTRUCT ps;
-				HDC hdc = BeginPaint(hWnd, &ps);
-				FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
-
-				EndPaint(hWnd, &ps);
+// 				PAINTSTRUCT ps;
+// 				HDC hdc = BeginPaint(hWnd, &ps);
+// 				FillRect(hdc, &ps.rcPaint, (HBRUSH)(COLOR_WINDOW + 1));
+// 
+// 				EndPaint(hWnd, &ps);
 			}
 			return 0;
 		}
@@ -56,12 +56,19 @@ namespace Mortal {
 
 	BOOL WindowWindows::InitWindow(const WindowInfo& _info)
 	{
+		m_msg = {};
 		m_data.m_info = _info;
 		MyRegisterClass();
 		RECT windowSize = { 0,0,m_data.m_info.WndWidth,m_data.m_info.WndHeight };
 		AdjustWindowRectEx(&windowSize, WS_OVERLAPPEDWINDOW, NULL, NULL);
 		auto name = m_data.m_info.WndTitle.c_str();
-		m_hwnd = CreateWindowW(name, L"Mortal Editor", WS_EX_TOPMOST | WS_POPUP,
+		m_hwnd = CreateWindowW(name, L"Mortal Editor", 
+			WS_VISIBLE |
+			WS_SYSMENU |
+			WS_OVERLAPPEDWINDOW | 
+			WS_BORDER | 
+			WS_EX_TOPMOST |
+			WS_POPUP,
 			0, 0, windowSize.right - windowSize.left, windowSize.bottom - windowSize.top, nullptr, nullptr, NULL, nullptr);
 
 		if (m_hwnd==NULL || m_hwnd==nullptr)
@@ -78,21 +85,20 @@ namespace Mortal {
 		return TRUE;
 	}
 
-	int WindowWindows::Render()
+	int WindowWindows::GetInput()
 	{
-		/*if (PeekMessage(&m_msg, NULL, 0, 0, PM_REMOVE))
+		if (PeekMessage(&m_msg, NULL, 0, 0, PM_REMOVE))
 		{
 			TranslateMessage(&m_msg);
 			DispatchMessage(&m_msg);
 			if (m_msg.message == WM_QUIT)
 				return -1;
-		}*/
-		MSG msg = { };
-		while (GetMessage(&msg, NULL, 0, 0))
+		}
+		/*while (GetMessage(&msg, NULL, 0, 0))
 		{
 			TranslateMessage(&msg);
 			DispatchMessage(&msg);
-		}
+		}*/
 		return 0;
 	}
 

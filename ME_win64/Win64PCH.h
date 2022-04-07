@@ -1,6 +1,6 @@
 #pragma once
-#include "Core.h"
-#include "MELogger.h"
+#include "../Core/Core.h"
+#include "../Logger/Logger/include/MELogger.h"
 #ifdef ME_PLATFORM_WINDOWS
 #include<windows.h>
 #include <shellapi.h>

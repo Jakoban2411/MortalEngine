@@ -1,14 +1,14 @@
 #pragma once
-#include <EnginePCH.h>
-#include "src/Window/Window.h"
-#include <Renderer.h>
+#include "../EnginePCH.h"
+#include "Window/Window.h"
+#include "../../Renderer/Renderer.h"
 #include "Events/Events.h"
 #ifdef ME_PLATFORM_WINDOWS
 #include "../../ME_win64/Window/WinApp.h"
 #ifdef ME_D3D12_API
-
+#include "../../Renderer/DirectX/D3DDevice.h"
 #endif // ME_D3D12_API
-#endif 
+#endif //ME_PLATFORM_WINDOWS
 
 namespace Mortal {
 	class ME_ENGINE_API Application

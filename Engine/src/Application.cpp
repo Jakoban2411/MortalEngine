@@ -3,11 +3,13 @@
 
 namespace Mortal{
 	extern Window* CreateWndw(const WindowInfo& props);
+	extern Renderer* CreateRenderer(UINT Width, UINT Height, bool VSync);
+
 	Application::Application(std::wstring WinTitle=L"MortalEngine",int Width = 1920, int Height = 1080, bool VSync = false) : m_framecount(0),m_elapsedseconds(0)
 	{
 		WindowInfo WndwInfo(WinTitle, Width, Height, VSync);
-		m_Window = std::make_unique<Window>(CreateWndw(WndwInfo));//std::unique_ptr<Window>(CreateWndw(WndwInfo));
-		m_Renderer = std::make_unique<Renderer>(CreateRenderer());
+		m_Window = std::unique_ptr<Window>(CreateWndw(WndwInfo));
+		m_Renderer = std::unique_ptr<Renderer>(CreateRenderer(Width,Height,VSync));
 	}
 	Application::~Application()
 	{
@@ -18,7 +20,8 @@ namespace Mortal{
 		{
 			//Update engine physics,etc
 			static auto t0 = m_clock.now();
-			m_Window->Render();
+			m_Window->GetInput();
+			m_Renderer->Render();
 			++m_framecount;
 			static auto t1 = m_clock.now();
 			auto dt = t1 - t0;

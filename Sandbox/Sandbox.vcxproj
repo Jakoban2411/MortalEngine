@@ -131,8 +131,7 @@
       <AdditionalDependencies>Logger.lib;Engine.lib;ME_win64.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>
-      </Command>
+      <Command>call "$(SolutionDir)bin\$(Platform)-$(Configuration)\CopyBin.bat"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

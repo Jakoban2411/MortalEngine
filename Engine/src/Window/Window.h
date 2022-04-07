@@ -1,6 +1,6 @@
 #pragma once
-#include "EnginePCH.h"
-#include "src/Events/Events.h"
+#include "../../EnginePCH.h"
+#include "../Events/Events.h"
 
 namespace Mortal {
 	
@@ -19,7 +19,7 @@ namespace Mortal {
 		
 		virtual ~Window() {}
 		
-		virtual int Render()=0;
+		virtual int GetInput()=0;
 		
 		virtual inline unsigned int GetWidth() const = 0;
 		virtual inline unsigned int GetHeight() const = 0;

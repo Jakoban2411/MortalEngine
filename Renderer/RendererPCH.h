@@ -1,6 +1,7 @@
 #pragma once
-#include "Core.h"
+#include "../Core/Core.h"
 #include <queue>
+#include <stack>
 #ifdef ME_PLATFORM_WINDOWS
 	#include <windows.h>
 	#include <shellapi.h>
